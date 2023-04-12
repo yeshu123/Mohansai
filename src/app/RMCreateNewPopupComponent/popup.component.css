@@ -1,0 +1,63 @@
+/* 
+.mat-form-field{
+    width: 50%;
+    margin-bottom: 5px;
+} */
+.btn-primary{
+    background-color: darkslategray;
+  }
+  .btn-primary:active {
+    background-color: darkslategray !important;
+  }
+  .popup-container {
+    margin: 0;
+    padding: 0;
+  }
+  .form-group{
+    font-size: 14px;
+    font-weight: bold;
+    font-family:  'Gill Sans MT';
+    
+  }
+  .form-control{
+    font-size: 14px;
+    font-family:  'Gill Sans MT';
+  }
+  /* .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+  } */
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+  }
+  
+  .popup-header h2 {
+    margin: 0;
+    font-family: gill sans mt;
+  }
+  
+  .popup-header .close-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.6rem;
+  }
+  
+  

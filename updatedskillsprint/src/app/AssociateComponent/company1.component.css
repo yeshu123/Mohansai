@@ -1,0 +1,20 @@
+.mat-elevation-z8{
+    width: 1200px;
+}
+
+::ng-deep .tooltip-custom {
+  font-size: 18px;
+}
+.save-button {
+    background: green;
+  }
+.btn-primary{
+    background-color:  #4a4946;
+  }
+  .btn-primary:active {
+    background-color:  #4a4946 !important;
+  }
+
+  .text{
+    text-align: center;
+  }

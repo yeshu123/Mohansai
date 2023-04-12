@@ -1,0 +1,38 @@
+
+.mat-elevation-z8{
+    width: 1200px;
+  
+
+}
+.text{
+  text-align: center;
+}
+/* a{
+    padding: 5px;
+    color: white !important;
+} */
+.ng-container{
+  text-align: center;
+}
+/* .example-section {
+    margin: 12px 0;
+  } */
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td{
+    font-family: Gill sans MT;
+    color: black;
+    font-size: 16px;
+    /* font-weight: bold; */
+  }
+
+.btn-primary{
+  background-color: #4a4946;
+}
+.btn-primary:active {
+  background-color: #4a4946 !important;
+}

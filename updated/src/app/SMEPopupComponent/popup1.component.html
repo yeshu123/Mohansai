@@ -1,0 +1,56 @@
+<form (ngSubmit)="SaveCompany()">
+  <b>Comments: </b>
+  <form action="/form/submit" method="POST">
+    <textarea class="comment"></textarea>
+    <br>
+  </form>
+  <div class="example-button-row" style="margin: 2px">
+    <!-- <button type="button" class="btn btn-primary" >Approve</button> -->
+    <button type="button" class="btn btn-primary btn-sm"></button>
+<!--
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <button mat-raised-button (click)="onReview()" class="btn btn-primary my-btn"
+     >Submit </button>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <button (click)="closepopup()" type="button" class="btn btn-primary my-btn">Cancel</button>
+    <!-- //<a (click)="closepopup()" mat-raised-button color="accent">Cancel</a> -->
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form (ngSubmit)="SaveCompany()">
+    <b>Comments: </b>
+    <form action="/form/submit" method="POST">
+      <textarea class="comment" ></textarea>
+      <br>
+    </form>
+  <div class="li" style="margin: 2px">
+    <button mat-raised-button color="primary">Approve</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="primary">Submit </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a (click)="closepopup()" mat-raised-button color="accent">Cancel</a>
+  </div>
+  </form>
+
+
+
+
+
+
+ -->

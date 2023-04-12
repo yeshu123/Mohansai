@@ -1,0 +1,28 @@
+
+<div class="popup-container"></div>
+<div class="popup-header">
+  <h2 style="font-weight:bold;font-size:22px;">Comments : </h2>
+  <button mat-dialog-close cdkFocusInitial style="font-size: 20px;">x</button>
+</div>
+<form [formGroup]="formdata">
+  <div class="form-group">
+    <textarea style="width: 460px; height: 400px; padding:13px;font-size: 20px;" class="comment" formControlName="smeComments">
+      </textarea>
+  </div>
+
+  <br>
+</form>
+<div class="example-button-row">
+  <button style="font-size: 10px;color:white;width: 75px;margin-left: 25%" type="button" class="btn btn-primary my-btn"
+    (click)="approved()">Approve</button>
+
+
+  <button style="font-size: 10px;color:white;width: 75px;margin-left: 15%" type="button" class="btn btn-primary my-btn"
+    (click)="onReview()">Submit </button>
+  
+ 
+</div>
+
+
+
+

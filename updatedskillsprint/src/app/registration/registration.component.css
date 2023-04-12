@@ -1,0 +1,16 @@
+.registerForm {
+  width: max-content;
+}
+
+  .radio-group {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+  }
+  .radio-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .radio-group:first-of-type label {
+    margin-right: 20px;
+  }

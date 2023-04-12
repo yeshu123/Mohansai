@@ -1,0 +1,172 @@
+<h2 style="font-family: Gill sans MT-12px; font-size: 22px; margin-top: -1.5%">
+  <b style="
+      padding-left: 420px;
+      color: black;
+      font-size: 22px;
+    ">Resource Manager - Edit Assignment</b>
+</h2>
+
+<p>
+  <b style="
+      font-size: 18px;
+      background-color: white; margin-left:2%">VM ID : </b><label style="margin-right: 10%;font-size:larger"> {{this.companydata[0].vamid}}</label>
+  <b style="font-size: 18px;margin-left: 50%;">Associate Name : </b><label>{{ this.companydata[0].resourceName}}</label>
+</p>
+<!-- <h2 style="font-family: Gill sans MT-12px; font-size: 22px; margin-top: -1.5%">
+  Edit Assignment
+</h2> -->
+
+<div class="mat-elevation-z8">
+  <!-- <div>
+        <a mat-raised-button color="primary" (click)="Openpopup('')" style="margin: 2%">Create New</a>
+    </div> -->
+  <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+  <!-- <mat-form-field style="padding-left: 40px;">
+    <mat-label>
+      <fa-icon [icon]="faSearch" style="color: black;" size="1x"></fa-icon>&nbsp;Search
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input />
+  </mat-form-field> -->
+  <mat-form-field style="margin-left:40px;">
+    <mat-label >
+      <fa-icon [icon]="faSearch" style="color: black" size="1x" ></fa-icon> <a style="color: Black;">&nbsp;Search </a>
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Details" #input />
+  </mat-form-field>
+  <table mat-table [dataSource]="finaldata" matSort class="mat-elevation-z8">
+    <!-- <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white;" ><strong>ID</strong></th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container> -->
+    <!-- <ng-container matColumnDef="vamid" class="text">
+      <th mat-header-cell *matHeaderCellDef  style="color: white; font-size: 15px;">
+        <strong>VM ID</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" style="padding-left: 28px;">{{ element.vamid }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="resourceName" >
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">{{ element.resourceName }}</td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef style="color: white;" [hidden]="true"><strong>Email</strong></th>
+            <td mat-cell *matCellDef="let element">{{element.email }}</td>
+          </ng-container> -->
+
+    <ng-container matColumnDef="techTrack">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Tech Track</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        {{ element.programsTracker.techTrack }}
+      </td>
+    </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>Category</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" [matTooltip]="element.programsTracker.category"  [matTooltipPosition]="'above'" [matTooltipClass]="'tooltip-custom'" class="text">
+          {{ element.programsTracker.category|slice:0:7 }} &#9432;
+          <!-- <i class="fa-sharp fa-regular fa-circle-info"></i> -->
+          <!-- <fa-icon [icon]="faCircle" style="font-weight: 900;margin-top: 20px;font-size:large"></fa-icon> -->
+          <!-- <i class="bi bi-info-circle"></i> -->
+
+          <!-- this below line is for icon  -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg> -->
+
+        </td>
+      </ng-container>
+   <ng-container matColumnDef="program">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Program Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.programsTracker.program"   [matTooltipPosition]="'above'" [matTooltipClass]="'tooltip-custom'" class="text">
+        {{ element.programsTracker.program | slice:0:10 }} &#9432;
+      </td>
+    </ng-container>
+     <!-- <ng-container matColumnDef="program">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px">
+        <strong>Program Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.programsTracker.program }}
+      </td>
+    </ng-container> -->
+<!--
+    <ng-container matColumnDef="program">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px">
+        <strong>Program Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="program-cell">
+        <span class="program-name">{{ element.programsTracker.program | slice:0:10 }}</span>
+        <i class="fas fa-info-circle program-info-icon" [matTooltip]="element.programsTracker.program" [matTooltipClass]="'tooltip-custom'"></i>
+      </td>
+    </ng-container> -->
+
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Start Date</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        {{ element.startDate | date : "dd-MM-yy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>End Date</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text" >
+        {{ element.endDate | date : "dd-MM-yy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sme">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong> SME Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">{{ element.sme.split('@')[0] }}</td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="programStatus">
+            <th mat-header-cell *matHeaderCellDef style="color: white;font-size: 15px; "><strong> Program Status</strong></th>
+            <td mat-cell *matCellDef="let element">{{element.programStatus}}</td>
+          </ng-container> -->
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong> Action</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        <div>
+          <a type="button" (click)="EditCompany(element)"
+          style="font-size: 22px;color:white;">
+          <fa-icon [icon]="faPenSquare" style="color: black"></fa-icon>
+        </a>&nbsp;
+        |&nbsp;
+          <!-- <a mat-raised-button (click)="EditCompany(element.id)" color="primary">Edit</a> | -->
+          <!-- <a mat-raised-button (click)="RemoveCompany(element.id)" color="accent">Delete</a> -->
+            <a (click)="RemoveCompany(element.id)" type="button"
+              style="font-size: 19px;color:white;">
+              <fa-icon [icon]="faTrashAlt" style="color: black"></fa-icon>
+            </a>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColums"
+      style="background-color: rgb(0, 32, 82); font-family: gill sans MT-12px"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColums"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[20,40,60]" style="font-family: gill sans mt;" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

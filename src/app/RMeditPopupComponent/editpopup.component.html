@@ -1,0 +1,107 @@
+<div class="popup-container">
+  <div class="popup-header">
+    <h2 style="font-weight:bold;font-size: 22px;">Edit Assignment</h2>
+    <button mat-dialog-close cdkFocusInitial style="font-size: 20px;">x</button>
+  </div>
+  <hr style="border: solid black 1px;"/>
+  <div class="popup-content mt-4">
+    <form [formGroup]="editdata" style="font-family: gill sans mt;" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6" hidden>
+          <label for="inputEmail4">id</label>
+          <input type="text" formControlName="id" class="form-control" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">VM ID</label>&nbsp;
+          <b style="color: red;">*</b>
+          <input type="text" class="form-control"  formControlName="vamid" [readOnly]="true"  />
+      <small *ngIf="editdata.get('vamid')?.hasError('required')" class="text-danger" style="font-size:15px;">Required</small>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Name</label>
+          <input type="text" class="form-control" formControlName="resourceName" [readOnly]="true" />
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Email</label>
+          <input type="text" class="form-control"  [readOnly]="true" formControlName="email" />
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputState">Tech Track</label>&nbsp;
+          <b style="color: red;">*</b>
+          <select id="inputState" class="form-control" formControlName="techTrack" [(ngModel)]="techTrack" name="TechTrack"
+          (click)="dropdown()">
+          <option *ngFor="let techTrack of listitems" [value]="techTrack.techTrack">
+            {{ techTrack.techTrack }}
+          </option>
+        </select>
+      <!-- <small *ngIf="editdata.get('techTrack')?.hasError('required')" class="text-danger" style="font-size:15px;">Required</small> -->
+        </div>
+
+
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Category</label>
+        <select id="inputState" class="form-control" formControlName="category" [(ngModel)]="category" name="category"
+        (click)="CategoryDropdown()">
+        <option *ngFor="let category of categoryItems" [value]="category">
+          {{ this.category }}
+        </option>
+      </select>
+        <!-- <input type="text" class="form-control"  formControlName="category" [readOnly]="true" /> -->
+      </div>
+        <div class="form-group col-md-6">
+          <label for="inputState">SME &nbsp;</label>
+          <b style="color: red;">*</b>
+          <input class="form-control" type="text"  formControlName="sme" />
+      <small *ngIf="editdata.get('sme')?.hasError('required')" class="text-danger" style="font-size:15px;">Required</small>
+
+        </div>
+       </div>
+      <div class="form-group">
+        <label for="inputAddress2">Program Name</label>
+        <select  class="form-control" formControlName="ProgramsTrackerId" [(ngModel)]="ProgramsTrackerId" name="ProgramsTrackerId"
+        (click)="programDropdown()"  >
+        
+  <option *ngFor="let ProgramsTrackerId of programItems"   [value]="ProgramsTrackerId.id">{{ ProgramsTrackerId.program}} </option>
+</select>
+        <!-- <input type="text" class="form-control" formControlName="program"  [readOnly]="true" /> -->
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Start Date</label>&nbsp;
+          <b style="color: red;">*</b>
+          <input id="date" name="date" class="form-control" type="date"
+            formControlName="startDate" [min]="minDate" />
+      <small *ngIf="editdata.get('startDate')?.hasError('required')" class="text-danger" style="font-size:15px;">Required</small>
+
+        </div>
+        <!--  value="{{ this.editdata.startDate | date : 'yyyy-MM-dd' }}" -->
+
+        <div class="form-group col-md-6">
+          <label for="inputState">End Date</label>&nbsp;
+          <b style="color: red;">*</b>
+          <input class="form-control" type="date"  formControlName="endDate" />
+      <small *ngIf="editdata.get('endDate')?.hasError('required')" class="text-danger" style="font-size:15px;">Required</small>
+
+        </div>
+        <!-- value="{{ this.editdata.endDate | date : 'yyyy-MM-dd' }}" -->
+      </div>
+
+
+
+
+      <div class="example-button-row" style="margin-left: 8%;padding-left: 63px;">
+        <button type="submit" class="btn btn-primary my-btn"
+          style="font-size: 13px;color:white;width: 80px; margin-left: 25%; " >Save</button>
+        <!-- <a type="button" class="btn btn-primary" style="font-size: 10px;color:white;width: 75px;">Cancel</a>
+        &nbsp; &nbsp; &nbsp; &nbsp; -->
+
+      </div>
+    </form>
+  </div>
+
+</div>

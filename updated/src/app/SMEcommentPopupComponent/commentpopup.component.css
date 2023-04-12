@@ -1,0 +1,35 @@
+.mat-form-field{
+    width: 40%;
+    margin-bottom: 5px;
+}
+.btn-primary{
+    background-color: darkslategray;
+  }
+  .btn-primary:active {
+    background-color: darkslategray !important;
+  }
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    /* border-bottom: 1px solid black; */
+  }
+  
+  .popup-header h2 {
+    margin: 0;
+    font-family: gill sans mt;
+  }
+  
+  .popup-header .close-button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.6rem;
+  }
+  
+  

@@ -1,0 +1,33 @@
+
+.mat-elevation-z8{
+    width: 1200px;
+
+}
+.btn-primary{
+  background-color: #4a4946;
+}
+.btn-primary:active {
+  background-color: #4a4946 !important;
+}
+/* a{
+    padding: 5px;
+    color: white !important;
+} */
+.example-section {
+    margin: 12px 0;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td{
+    font-family: Gill sans MT-12px;
+    color: black;
+    font-size: 16px;
+    /* font-weight: bold; */
+  }
+.text{
+  text-align: center;
+}

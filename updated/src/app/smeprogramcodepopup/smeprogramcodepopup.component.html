@@ -1,0 +1,27 @@
+<div class="popup-container">
+<div class="popup-header">
+  <h2 style="font-weight:bold;font-size:22px">Review Code : </h2>
+  <button mat-dialog-close cdkFocusInitial style="font-size: 20px;">x</button>
+</div>
+<div>
+<form [formGroup]="formdata">
+  <!-- <input type="text" [(ngModel)] = "code" (change)="setValue()"> -->
+  <div class="form-group" hidden>
+    <label>Program Status</label>
+    <input type="text" class="form-control" formControlName="ProgramStatus">
+  </div>
+
+  <div class="form-group">
+
+    <textarea type="text" readonly (oncopy)="false" style="width: 650px; height: 400px; resize: both"
+      class="form-control" formControlName="programCode" oncopy="return false;"></textarea>
+  </div>
+
+  <br />
+  &nbsp;&nbsp;&nbsp;
+  <!-- <a type="button" class="btn btn-primary"
+    style="font-size: 10px;color:white;width: 75px; text-align: center;">Cancel</a> -->
+  <!-- <button class="btn btn-primary" (click)="onSubmit()">Update</button> -->
+</form>
+</div>
+</div>

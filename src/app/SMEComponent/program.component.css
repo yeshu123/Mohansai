@@ -1,0 +1,42 @@
+
+.mat-elevation-z8{
+     width: 1200px;
+    vertical-align: middle;
+    margin-left: 0%;
+    /* box-shadow: none; */
+
+
+}
+.btn-primary{
+    background-color: darkslategray;
+  }
+  .btn-primary:active {
+    background-color: darkslategray !important;
+  }
+/* a{
+    padding: 5px;
+    color: white !important;
+} */
+.mark
+{
+    text-size-adjust: 10px;
+    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    background-color: white;
+ 
+}
+
+td{
+  font-family: Gill sans MT-12px;
+  color: black;
+  font-size: 16px;
+  /* font-weight: bold; */
+}
+
+.text{
+  text-align: center;
+}
+::ng-deep .tooltip-custom {
+  font-size: 18px;
+}

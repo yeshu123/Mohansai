@@ -1,0 +1,149 @@
+<div style="font-family: Gill sans MT-12px">
+  <h2 style="font-family: Gill sans MT-12px; font-size: 22px;">
+    <b style="
+        padding-left: 470px;
+
+        color: black;
+      ">Resource Manager - SME View Assignment</b>
+
+  </h2>
+
+
+  <!-- <p style="font-family: Gill sans MT-12px;">Resource Manager - <strong>Vasudha</strong></p> -->
+
+  <div class="mat-elevation-z8">
+    <div>
+      <!-- <a mat-raised-button color="primary" (click)="Openpopup('')" style="margin: 2%">Create New</a> -->
+
+      <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+      <mat-form-field style="margin-left:40px;">
+        <mat-label >
+          <fa-icon [icon]="faSearch" style="color: black" size="1x" ></fa-icon> <a style="color: Black;">&nbsp;Search </a>
+        </mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Details" #input />
+      </mat-form-field>
+    </div>
+    <!-- <div class="search-container">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="search" autocomplete="off" (keyup)="filterData($event)">
+       </mat-form-field>
+    </div> -->
+
+    <table mat-table [dataSource]="finaldata" matSort class="mat-elevation-z8" >
+      <!-- <ng-container matColumnDef="id" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white; font-size :15px; " ><b>ID</b></th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container> -->
+
+      <ng-container matColumnDef="vamid">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>VM ID</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.vamid }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="resourceName">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong> Name</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.resourceName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email" hiddenColumnsText="Hidden">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>Email</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.email }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="techTrack">
+            <th mat-header-cell *matHeaderCellDef> techTrack</th>
+            <td mat-cell *matCellDef="let element">{{element.techTrack }}</td>
+          </ng-container> -->
+
+      <ng-container matColumnDef="techTrack">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>Tech Track</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.techTrack }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDate">
+        <!-- <mat-form-field class="searchInputs">
+              <input
+                matInput
+                [matDatepicker]="searchStartDate"
+                [(ngModel)]="this.searchLeaveApplication.startDate"
+                name="startDate"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="searchStartDate"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #searchStartDate></mat-datepicker>
+            </mat-form-field> -->
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong> Start Date</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">
+          {{ element.startDate | date : "dd-MM-yy" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>End Date</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.endDate | date : "dd-MM-yy" }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sme">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>SME Name</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.sme.split('@')[0]}}</td>
+      </ng-container>
+      <ng-container matColumnDef="manager">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>PM/DM</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">{{ element.manager.split('@')[0] }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="programStatus">
+            <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px;"><strong> Program Status</strong></th>
+            <td mat-cell *matCellDef="let element">{{element.programStatus}}</td>
+          </ng-container> -->
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+          <strong>Action</strong>
+        </th>
+        <td mat-cell *matCellDef="let element" class="text">
+          <div>
+              <a type="button" (click)="routing(element.id)"
+              style="font-size: 22px;color:white;">
+              <fa-icon [icon]="faPenSquare" style="color: black"></fa-icon>
+            </a>
+
+            <!-- <a mat-raised-button (click)="routing(element.id)" color="primary">Edit</a> | -->
+            <!-- <a routerLink ="editassignment"  mat-menu-item>Edit </a> -->
+
+            <!-- <a mat-raised-button (click)="RemoveCompany(element.id)" color="accent">Delete</a> -->
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColums" style="
+          background-color: rgb(0, 32, 82);
+          font-family: gill sans MT-12px;
+          font-size: 20px;
+        "></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColums"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" style="font-family: gill sans mt;" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
+<!-- <app-popup *ngIf="showPopup" (onClose)="showPopup = false"> < add content here </app-popup> -->

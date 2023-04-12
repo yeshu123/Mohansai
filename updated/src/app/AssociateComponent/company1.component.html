@@ -1,0 +1,120 @@
+<app-header1></app-header1>
+<div>
+  <h2 style="font-size: 22px;">
+    <b style="
+      padding-left: 500px;
+      background-color: white;
+      color: black;
+      font-size:22px;
+    ">Associate View</b>
+
+  </h2>
+</div>
+
+  <p>
+    <b style="
+        font-size: 18px;
+        background-color: white; margin-left:2%">VM ID : </b><label style="margin-right: 10%;"> {{this.vamid}}</label>
+    <b style="font-size: 18px;margin-left: 680px;">Associate Name : </b><label>{{this.name}}</label>
+  </p>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="finaldata" class="mat-elevation-z8" style="margin: 0% 0% 0% 0%">
+    <ng-container matColumnDef="id" >
+      <th mat-header-cell *matHeaderCellDef  style="color: white; font-size: 15px; display: none;" class="text">
+        <b >Id</b>
+      </th>
+      <td mat-cell *matCellDef="let element" style="display: none;" class="text">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="techTrack">
+      <th mat-header-cell *matHeaderCellDef style="color: white; padding-left: 18px;font-size: 15px" class="text">
+        <b>Tech Track</b>
+      </th>
+      <td mat-cell *matCellDef="let element" style="padding-left: 18px;" class="text">{{ element.techTrack }}</td>
+    </ng-container>
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Category</strong>
+      </th>
+     <td mat-cell *matCellDef="let element" [matTooltip]="element.programsTracker.category" [matTooltipPosition]="'above'" [matTooltipClass]="'tooltip-custom'" class="text">
+      {{ element.programsTracker.category|slice:0:5 }} &#9432;
+    </td>
+    </ng-container>
+    <ng-container matColumnDef="program">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Program Name</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        <span class="category-wrapper">
+          <span class="category-text">{{ element.programsTracker.program|slice:0:7 }}</span>
+          <span class="category-icon" [matTooltip]="element.programsTracker.program" [matTooltipPosition]="'above'" [matTooltipClass]="'tooltip-custom'">
+            &#9432;
+          </span>
+        </span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white; font-size: 15px" class="text">
+        <b>Start Date</b>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.startDate | date : "dd-MM-yy" }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <b>End Date</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">{{ element.endDate | date : "dd-MM-yy" }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Delaydays">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <b>Delay Days</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        {{ getDelayDays(element) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sme">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <b> SME Name</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">{{ element.sme.split('@')[0] }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="programStatus">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <b> SME Status</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">{{ element.programStatus }}</td>
+    </ng-container>
+    <ng-container matColumnDef="upload" style="color: white; font-size: 15px">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <b>Upload</b>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        <div>
+            <a type="button" (click)="EditCompany(element)"
+            style="font-size: 22px;color:white;">
+            <fa-icon [icon]="faUpload" style="color: black"></fa-icon>
+          </a>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef style="color: white; font-size: 15px" class="text">
+        <strong>Comments</strong>
+      </th>
+      <td mat-cell *matCellDef="let element" class="text">
+        <div>
+          <textarea disabled style="width: 180px; font-size:18px;">{{element.smeComments}}</textarea>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColums"
+      style="background-color: rgb(0, 32, 82);"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColums"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[ 5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

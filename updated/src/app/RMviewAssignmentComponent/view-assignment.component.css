@@ -1,0 +1,14 @@
+.mat-elevation-z8{
+    width: 1200px;
+
+}
+
+td{
+  font-family: Gill sans MT-12px;
+  color: black;
+  font-size: 16px;
+  /* font-weight: bold; */
+}
+.text{
+  text-align: center;
+}
